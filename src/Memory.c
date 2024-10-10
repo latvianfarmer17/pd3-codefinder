@@ -175,6 +175,7 @@ void FindPattern(HANDLE hProcess, char pattern[], Array* foundAddrArr) {
 
 	free(threads);
 	free(threadArgs);
+	
 	FreeArray(&mbiAddrArr);
 }
 
