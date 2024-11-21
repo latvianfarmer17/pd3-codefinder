@@ -28,17 +28,8 @@ int PushBack(Array* arr, Array_T element) {
 	}
 	
 	if (arr->size >= arr->capacity) {
-		arr->capacity <<= 1;
-		
-		Array_T* newData = (Array_T*)malloc(arr->capacity * sizeof(Array_T));
-		
-		for (int i = 0; i < arr->size; i++) {
-			newData[i] = arr->data[i];
-		}
-		
-		free(arr->data);
-		
-		arr->data = newData;
+		arr->capacity <<= 1;		
+		arr->data = realloc(arr->data, arr->capacity * sizeof(Array_T));
 	}
 	
 	arr->data[arr->size++] = element;
