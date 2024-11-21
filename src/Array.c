@@ -27,11 +27,11 @@ int PushBack(Array* arr, Array_T element) {
 		return 1;
 	}
 	
-	if (arr->size >= arr->capacity) {
-		arr->capacity <<= 1;		
-		arr->data = realloc(arr->data, arr->capacity * sizeof(Array_T));
+	while (arr->size >= arr->capacity) {
+		arr->capacity <<= 1;
 	}
 	
+	arr->data = realloc(arr->data, arr->capacity * sizeof(Array_T));
 	arr->data[arr->size++] = element;
 	
 	return 0;
