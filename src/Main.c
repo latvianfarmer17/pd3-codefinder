@@ -70,7 +70,7 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 
 	case WM_COMMAND:
 		if (LOWORD(wParam) == SEARCH_BTN_ID && HIWORD(wParam) == BN_CLICKED) {						
-			if (hProcess == NULL && (hProcess = GetProcessHandle("PAYDAY3Client-Win64-Shipping.exe")) == NULL) {
+			if (hProcess == NULL || (hProcess = GetProcessHandle("PAYDAY3Client-Win64-Shipping.exe")) == NULL) {
 				MessageBox(hWnd, "The game is not open!", "Code Finder", MB_OK | MB_ICONINFORMATION);
 				return 0;
 			}
